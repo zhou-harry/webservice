@@ -33,7 +33,7 @@ public class WebServicesConfiguration extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/web-services/*");
+        return new ServletRegistrationBean(servlet, "/web-services/*","/ws/*");
     }
 
     @Bean("users")

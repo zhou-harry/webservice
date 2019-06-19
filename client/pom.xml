@@ -32,7 +32,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!--xsd配置文件生成对应的Java类,执行generate之前最好先mvn -X clean install-->
+            <!--xsd配置文件生成对应的Java类,mvn -X clean install-->
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
