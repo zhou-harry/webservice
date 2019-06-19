@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://harry.org/ws/schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://harry.org/ws/schema" targetNamespace="http://harry.org/ws/schema">
+  <wsdl:types>
+    <xs:schema xmlns="http://harry.org/ws/schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://harry.org/ws/schema">
+
+    <!--用户对象：ID，名字和年龄 -->
+
+    <xs:complexType name="User">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:long"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="age" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="UserIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:long"/>
+                <xs:element name="timestamp" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="User"/>
+                <xs:element name="timestamp" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="UserResponse">
+    <wsdl:part element="tns:UserResponse" name="UserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UserIdRequest">
+    <wsdl:part element="tns:UserIdRequest" name="UserIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UserServicePort">
+    <wsdl:operation name="User">
+      <wsdl:output message="tns:UserResponse" name="UserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserId">
+      <wsdl:input message="tns:UserIdRequest" name="UserIdRequest">
+    </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserServicePortSoap11" type="tns:UserServicePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="User">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="UserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserId">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="UserIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserServicePortService">
+    <wsdl:port binding="tns:UserServicePortSoap11" name="UserServicePortSoap11">
+      <soap:address location="http://localhost:8080/web-services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
