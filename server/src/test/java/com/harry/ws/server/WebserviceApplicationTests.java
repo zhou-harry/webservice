@@ -31,7 +31,7 @@ public class WebserviceApplicationTests {
 
         //构造 SOAP 请求
         UserIdRequest userIdRequest = new UserIdRequest();
-        userIdRequest.setUserId(2L);
+        userIdRequest.setUserId(1L);
         userIdRequest.setTimestamp(Instant.now().toEpochMilli());
 
         SoapActionCallback soapActionCallback = new SoapActionCallback("<the operation name as defined in the WSDL>");
