@@ -47,4 +47,13 @@ public class UserEntity implements Serializable {
         this.name = name;
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
