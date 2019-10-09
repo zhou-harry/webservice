@@ -5,5 +5,5 @@
 // 生成时间: 2019.10.09 时间 10:49:29 AM CST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://harry.org/ws/schema", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.harry.ws.client.wsdl;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://webservice.harry.com/")
+package com.harry.ws.client.wsdl.userapi;

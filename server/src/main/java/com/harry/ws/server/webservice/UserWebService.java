@@ -1,5 +1,7 @@
 package com.harry.ws.server.webservice;
 
+import com.harry.ws.server.webservice.entity.SettlementRequest;
+import com.harry.ws.server.webservice.entity.SettlementResponse;
 import com.harry.ws.server.webservice.entity.UserEntity;
 
 import javax.jws.WebMethod;
@@ -24,5 +26,8 @@ public interface UserWebService {
     @WebMethod
     @WebResult(name = "String")
     String sayHello(@WebParam(name = "userName") String name);
+
+    @WebMethod
+    SettlementResponse settlementUpdate(@WebParam(name = "settlementRequest") SettlementRequest request);
 
 }

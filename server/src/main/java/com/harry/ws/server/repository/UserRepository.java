@@ -1,6 +1,6 @@
 package com.harry.ws.server.repository;
 
-import com.harry.ws.server.users.User;
+import com.harry.ws.server.wsdl.users.User;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;

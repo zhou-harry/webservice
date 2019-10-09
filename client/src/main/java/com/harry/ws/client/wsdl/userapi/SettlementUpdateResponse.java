@@ -6,27 +6,25 @@
 //
 
 
-package com.harry.ws.client.wsdl;
+package com.harry.ws.client.wsdl.userapi;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>anonymous complex type的 Java 类。
+ * <p>settlementUpdateResponse complex type的 Java 类。
  * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="settlementUpdateResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="user" type="{http://harry.org/ws/schema}User"/&gt;
- *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="return" type="{http://webservice.harry.com/}settlementResponse" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,55 +34,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "user",
-    "timestamp"
+@XmlType(name = "settlementUpdateResponse", propOrder = {
+    "_return"
 })
-@XmlRootElement(name = "UserResponse")
-public class UserResponse {
+public class SettlementUpdateResponse {
 
-    @XmlElement(required = true)
-    protected User user;
-    protected long timestamp;
+    @XmlElement(name = "return")
+    protected SettlementResponse _return;
 
     /**
-     * 获取user属性的值。
+     * 获取return属性的值。
      * 
      * @return
      *     possible object is
-     *     {@link User }
+     *     {@link SettlementResponse }
      *     
      */
-    public User getUser() {
-        return user;
+    public SettlementResponse getReturn() {
+        return _return;
     }
 
     /**
-     * 设置user属性的值。
+     * 设置return属性的值。
      * 
      * @param value
      *     allowed object is
-     *     {@link User }
+     *     {@link SettlementResponse }
      *     
      */
-    public void setUser(User value) {
-        this.user = value;
-    }
-
-    /**
-     * 获取timestamp属性的值。
-     * 
-     */
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * 设置timestamp属性的值。
-     * 
-     */
-    public void setTimestamp(long value) {
-        this.timestamp = value;
+    public void setReturn(SettlementResponse value) {
+        this._return = value;
     }
 
 }

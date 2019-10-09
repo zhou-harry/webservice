@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           targetNamespace="http://harry.org/ws/schema" xmlns="http://harry.org/ws/schema">
+
+
+
+    <xs:complexType name="orderRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="fasOrderNo" type="xs:string"/>
+            <xs:element minOccurs="0" name="setlDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="orderResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorMsg" type="xs:string"/>
+            <xs:element minOccurs="0" name="fasOrderNo" type="xs:string"/>
+            <xs:element minOccurs="0" name="status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="settlementRequest" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="batchNo" type="xs:string"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="orders" nillable="true" type="orderRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="settlementResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="batchNo" type="xs:string"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="orderDetails" nillable="true" type="orderResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

@@ -5,21 +5,45 @@
 此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.11 生成的
 请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 在重新编译源模式时, 对此文件的所有修改都将丢失。
-生成时间: 2019.06.19 时间 04:33:35 PM CST 
+生成时间: 2019.10.09 时间 10:49:29 AM CST 
 
   -->
-  <bindings xmlns:tns="http://harry.org/ws/schema" if-exists="true" scd="x-schema::tns">
+  <bindings xmlns:tns="http://webservice.harry.com/" if-exists="true" scd="x-schema::tns">
     <schemaBindings map="false">
-      <package name="com.harry.ws.client.wsdl"/>
+      <package name="com.harry.ws.client.wsdl.userapi"/>
     </schemaBindings>
-    <bindings if-exists="true" scd="tns:UserIdRequest">
-      <class ref="com.harry.ws.client.wsdl.UserIdRequest"/>
+    <bindings if-exists="true" scd="~tns:getUser">
+      <class ref="com.harry.ws.client.wsdl.userapi.GetUser"/>
     </bindings>
-    <bindings if-exists="true" scd="tns:UserResponse">
-      <class ref="com.harry.ws.client.wsdl.UserResponse"/>
+    <bindings if-exists="true" scd="~tns:getUserResponse">
+      <class ref="com.harry.ws.client.wsdl.userapi.GetUserResponse"/>
     </bindings>
-    <bindings if-exists="true" scd="~tns:User">
-      <class ref="com.harry.ws.client.wsdl.User"/>
+    <bindings if-exists="true" scd="~tns:sayHello">
+      <class ref="com.harry.ws.client.wsdl.userapi.SayHello"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:sayHelloResponse">
+      <class ref="com.harry.ws.client.wsdl.userapi.SayHelloResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:settlementUpdate">
+      <class ref="com.harry.ws.client.wsdl.userapi.SettlementUpdate"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:settlementUpdateResponse">
+      <class ref="com.harry.ws.client.wsdl.userapi.SettlementUpdateResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:userEntity">
+      <class ref="com.harry.ws.client.wsdl.userapi.UserEntity"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:settlementRequest">
+      <class ref="com.harry.ws.client.wsdl.userapi.SettlementRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:orderRequest">
+      <class ref="com.harry.ws.client.wsdl.userapi.OrderRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:settlementResponse">
+      <class ref="com.harry.ws.client.wsdl.userapi.SettlementResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:orderResponse">
+      <class ref="com.harry.ws.client.wsdl.userapi.OrderResponse"/>
     </bindings>
   </bindings>
 </bindings>

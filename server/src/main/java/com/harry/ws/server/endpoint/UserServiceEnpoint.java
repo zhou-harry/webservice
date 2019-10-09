@@ -1,9 +1,13 @@
 package com.harry.ws.server.endpoint;
 
-import com.harry.ws.server.users.User;
-import com.harry.ws.server.users.UserIdRequest;
-import com.harry.ws.server.users.UserResponse;
 import com.harry.ws.server.repository.UserRepository;
+import com.harry.ws.server.wsdl.settlement.OrderRequest;
+import com.harry.ws.server.wsdl.settlement.OrderResponse;
+import com.harry.ws.server.wsdl.settlement.SettlementRequest;
+import com.harry.ws.server.wsdl.settlement.SettlementResponse;
+import com.harry.ws.server.wsdl.users.User;
+import com.harry.ws.server.wsdl.users.UserIdRequest;
+import com.harry.ws.server.wsdl.users.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -13,6 +17,8 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author zhouhong
@@ -48,6 +54,27 @@ public class UserServiceEnpoint {
         userResponse.setTimestamp(Instant.now().toEpochMilli());
 
         return userResponse;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "settlementRequest")
+    @ResponsePayload
+    public SettlementResponse settlement(@RequestPayload SettlementRequest request) {
+        System.out.println("Web Services 批次号 :" + request.getBatchNo());
+        SettlementResponse response = new SettlementResponse();
+        response.setBatchNo(request.getBatchNo());
+
+        List<OrderResponse> orders=response.getOrderDetails();
+        List<OrderRequest> requestOrders = request.getOrders();
+        if (null!=requestOrders){
+            requestOrders.forEach(o->{
+                OrderResponse orderResponse = new OrderResponse();
+                orderResponse.setFasOrderNo(o.getFasOrderNo());
+                orderResponse.setStatus("success");
+                orderResponse.setErrorMsg("操作成功");
+                orders.add(orderResponse);
+            });
+        }
+        return response;
     }
 
 }

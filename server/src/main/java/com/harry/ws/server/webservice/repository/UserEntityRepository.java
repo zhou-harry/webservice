@@ -1,6 +1,5 @@
 package com.harry.ws.server.webservice.repository;
 
-import com.harry.ws.server.users.User;
 import com.harry.ws.server.webservice.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 

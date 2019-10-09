@@ -1,13 +1,15 @@
 package com.harry.ws.server.webservice.impl;
 
 import com.harry.ws.server.webservice.UserWebService;
-import com.harry.ws.server.webservice.entity.UserEntity;
+import com.harry.ws.server.webservice.entity.*;
 import com.harry.ws.server.webservice.repository.UserEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.jws.WebService;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author zhouhong
@@ -34,5 +36,22 @@ public class UserWebServiceImpl implements UserWebService {
     @Override
     public String sayHello(String name) {
         return "Hello ：" + name;
+    }
+
+    @Override
+    public SettlementResponse settlementUpdate(SettlementRequest request) {
+        SettlementResponse response = new SettlementResponse();
+        response.setBatchNo(request.getBatchNo());
+
+        List<OrderResponse> orders=new ArrayList<>();
+        List<OrderRequest> requestOrders = request.getOrders();
+        if (null!=requestOrders){
+            requestOrders.forEach(o->{
+                orders.add(new OrderResponse(o.getFasOrderNo()));
+            });
+        }
+
+        response.setOrderDetails(orders);
+        return response;
     }
 }

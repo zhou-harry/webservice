@@ -79,7 +79,19 @@
                             <schemaIncludes>
                                 <include>META-INF/schemas/user.xsd</include>
                             </schemaIncludes>
-                            <generatePackage>com.harry.ws.server.users</generatePackage>
+                            <generatePackage>com.harry.ws.server.wsdl.users</generatePackage>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>xjc-settlement</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <schemaIncludes>
+                                <include>META-INF/schemas/settlement.xsd</include>
+                            </schemaIncludes>
+                            <generatePackage>com.harry.ws.server.wsdl.settlement</generatePackage>
                         </configuration>
                     </execution>
                 </executions>

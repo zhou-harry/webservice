@@ -67,6 +67,18 @@
                             <generatePackage>com.harry.ws.client.wsdl</generatePackage>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>xjc-user-api</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <schemaIncludes>
+                                <include>user-api.wsdl</include>
+                            </schemaIncludes>
+                            <generatePackage>com.harry.ws.client.wsdl.userapi</generatePackage>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <!--<plugin>

@@ -1,5 +1,5 @@
 
-package com.harry.ws.server.users;
+package com.harry.ws.server.wsdl.users;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
